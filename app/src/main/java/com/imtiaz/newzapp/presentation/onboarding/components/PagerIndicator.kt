@@ -16,7 +16,7 @@ import com.imtiaz.newzapp.ui.theme.BlueGray
 
 
 @Composable
-fun PageIndicator(
+fun PagerIndicator(
     modifier: Modifier = Modifier,
     pageSize: Int,
     selectedPage: Int,
@@ -24,9 +24,14 @@ fun PageIndicator(
     unselectedColor: Color = BlueGray
     ){
         Row (modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween){
-            repeat(pageSize){ page ->
-                Box(modifier = Modifier.size(IndicatorSize).clip(CircleShape).background(
-                    color = if (page == selectedPage) selectedColor else unselectedColor)
+            repeat(times = pageSize){ page ->
+                Box(
+                    modifier = Modifier
+                        .size(IndicatorSize)
+                        .clip(CircleShape)
+                        .background(
+                            color = if (page == selectedPage) selectedColor else unselectedColor
+                        )
                 )
             }
         }
